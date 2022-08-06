@@ -28,3 +28,21 @@ func TestMultipleForTwo(t *testing.T) {
 		t.Errorf("The expected value is %t, but the answer was %t", expected, result)
 	}
 }
+
+func TestSumM(t *testing.T) {
+	result := sumM(10)
+	expected := 23
+
+	if result != 23 {
+		t.Errorf("The expected value is %d, but the answer was %d", expected, result)
+	}
+}
+
+func TestSumGauss(t *testing.T) {
+	result := sumM(1000)
+	expected := 233168
+
+	if result != expected {
+		t.Errorf("The expected value is %d, but the answer was %d", expected, result)
+	}
+}
