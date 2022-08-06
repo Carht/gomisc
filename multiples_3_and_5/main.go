@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func multiplesOfThree(s []int) []int {
 	mulThree := []int{}
 
@@ -28,7 +30,7 @@ func sumMultiplesThreeAndFive(n int) int {
 	s := make([]int, n + 1)
 	total := 0
 
-	for i := 0; i <= n; i++ {
+	for i := 0; i < n; i++ {
 		s[i] = i
 	}
 
@@ -44,4 +46,9 @@ func sumMultiplesThreeAndFive(n int) int {
 	}
 
 	return total
+}
+
+func main() {
+	sumBelow1k := sumMultiplesThreeAndFive(1000)
+	fmt.Printf("The sum for the multiples of three and five is: %d\n", sumBelow1k)
 }

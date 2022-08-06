@@ -69,7 +69,7 @@ func TestMultiplesOfFiveMultiplesArguments(t *testing.T) {
 }
 
 func TestSumNumbersSlice(t *testing.T) {
-	result := sumMultiplesThreeAndFive(9)
+	result := sumMultiplesThreeAndFive(10)
 	expected := 23
 
 	if result != expected {
