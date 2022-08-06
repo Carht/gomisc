@@ -11,3 +11,7 @@ func multiplesOfThree(s []int) []int {
 
 	return mulThree
 }
+
+func multipleOfFive(s []int) []int {
+	return s
+}
