@@ -2,46 +2,68 @@ package main
 
 import "testing"
 
-func TestMultiplesOfThree(t *testing.T) {
+func TestMultiplesOfThreeDirectReturn(t *testing.T) {
 	result := multiplesOfThree([]int{3, 6, 9})
 	expected := []int{3, 6, 9}
 
 	for i := range result {
 		if result[i] != expected[i] {
-			t.Errorf("Expected slice is %v", result)
+			t.Errorf("The expected is %v, but the answer was %v", expected, result)
 		}
 	}
 }
 
-func testMultiplesOfThree(t *testing.T) {
+func TestMultiplesOfThreeAditionalArgument(t *testing.T) {
 	result := multiplesOfThree([]int{1, 3, 6, 9})
 	expected := []int{3, 6, 9}
 
 	for i := range result {
 		if result[i] != expected[i] {
-			t.Errorf("Expected slice is %v", result)
+			t.Errorf("The expected is %v, but the answer was %v", expected, result)
 		}
 	}
 }
 
-func testMultipleOfThree(t *testing.T) {
+func TestMultipleOfThreeMultiplesArguments(t *testing.T) {
 	result := multiplesOfThree([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20})
 	expected := []int{3, 6, 9, 12, 15, 18}
 
 	for i := range result {
 		if result[i] != expected[i] {
-			t.Errorf("Expected slice is %v", result)
+			t.Errorf("The expected is %v, but the answer was %v", expected, result)
 		}
 	}
 }
 
-func testMultipleOfFive(t *testing.T) {
-	result := multipleOfFive([]int{5, 10})
+func TestMultiplesOfFive(t *testing.T) {
+	result := multiplesOfFive([]int{5, 10})
 	expected := []int{5, 10}
 
 	for i := range result {
 		if result[i] != expected[i] {
-			t.Errorf("Expected slice is %v", result)
+			t.Errorf("The expected is %v, but the answer was %v", expected, result)
+		}
+	}
+}
+
+func TestMultiplesOfFiveAditionalArgument(t *testing.T) {
+	result := multiplesOfFive([]int{1, 5, 10})
+	expected := []int{5, 10}
+
+	for i := range result {
+		if result[i] != expected[i] {
+			t.Errorf("The expected is %v, but the answer was %v", expected, result)
+		}
+	}
+}
+
+func TestMultiplesOfFiveMultiplesArguments(t *testing.T) {
+	result := multiplesOfFive([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20})
+	expected := []int{5, 10, 15, 20}
+
+	for i := range result {
+		if result[i] != expected[i] {
+			t.Errorf("The expected is %v, but the answer was %v", expected, result)
 		}
 	}
 }

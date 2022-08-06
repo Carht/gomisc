@@ -12,6 +12,14 @@ func multiplesOfThree(s []int) []int {
 	return mulThree
 }
 
-func multipleOfFive(s []int) []int {
-	return s
+func multiplesOfFive(s []int) []int {
+	mulFive := []int{}
+
+	for _, i := range s {
+		if i % 5 == 0 {
+			mulFive = append(mulFive, i)
+		}
+	}
+
+	return mulFive
 }
