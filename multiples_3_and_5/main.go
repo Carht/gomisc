@@ -23,3 +23,20 @@ func multiplesOfFive(s []int) []int {
 
 	return mulFive
 }
+
+func sumMultiplesThreeAndFive(s []int) int {
+	mulThree := multiplesOfThree(s)
+	mulFive := multiplesOfFive(s)
+	
+	total := 0
+
+	for _, i := range mulThree {
+		total += i
+	}
+
+	for _, i := range mulFive {
+		total += i
+	}
+
+	return total
+}

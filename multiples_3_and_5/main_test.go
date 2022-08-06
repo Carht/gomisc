@@ -67,3 +67,12 @@ func TestMultiplesOfFiveMultiplesArguments(t *testing.T) {
 		}
 	}
 }
+
+func TestSumNumbersSlice(t *testing.T) {
+	result := sumMultiplesThreeAndFive([]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
+	expected := 23
+
+	if result != expected {
+		t.Errorf("The expected is %d, but the answer was %v", expected, result)
+	}
+}
