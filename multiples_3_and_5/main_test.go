@@ -35,3 +35,13 @@ func testMultipleOfThree(t *testing.T) {
 	}
 }
 
+func testMultipleOfFive(t *testing.T) {
+	result := multipleOfFive([]int{5, 10})
+	expected := []int{5, 10}
+
+	for i := range result {
+		if result[i] != expected[i] {
+			t.Errorf("Expected slice is %v", result)
+		}
+	}
+}
