@@ -25,5 +25,23 @@ func multiplesOfFive(s []int) []int {
 }
 
 func sumMultiplesThreeAndFive(n int) int {
-	return 23
+	s := make([]int, n + 1)
+	total := 0
+
+	for i := 0; i <= n; i++ {
+		s[i] = i
+	}
+
+	multThree := multiplesOfThree(s)
+	multFive := multiplesOfFive(s)
+
+	for _, i := range multThree {
+		total += i
+	}
+
+	for _, i := range multFive {
+		total += i
+	}
+
+	return total
 }
