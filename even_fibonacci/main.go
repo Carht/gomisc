@@ -26,3 +26,25 @@ func fibMinor4m() []int {
 
 	return minor4m
 }
+
+func evenp(n int) bool {
+	if n % 2 == 0 {
+		return true
+	} else {
+		return false
+	}
+}
+
+func evenSlicep(s []int) []int {
+	even := []int{}
+
+	for _, i := range s {
+		if evenp(i) {
+			even = append(even, i)
+		} else {
+			continue
+		}
+	}
+
+	return even
+}

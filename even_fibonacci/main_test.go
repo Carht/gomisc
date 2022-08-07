@@ -37,3 +37,36 @@ func TestFibListMinorsOF4_000_000(t *testing.T) {
 		}
 	}
 }
+
+func TestGetEvenNumbers(t *testing.T) {
+	result := evenp(4)
+	expected := true
+
+	if expected != true {
+		t.Errorf("The expected value is %t, but the answer was %t", expected, result)
+	}
+}
+
+func TestGetEvenNumbersWithNotEvenNumbers(t *testing.T) {
+	result := evenp(7)
+	expected := false
+
+	if expected != false {
+		t.Errorf("The expected value is %t, but the answer was %t", expected, result)
+	}
+}
+
+func TestGetEvenElementsFromASlice(t *testing.T) {
+	result := evenSlicep([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
+	expected := []int{2, 4, 6, 8, 10}
+
+	if len(result) != len(expected) {
+		t.Errorf("The len of expected is %d, but the len of result was %d", len(expected), len(result))
+	}
+
+	for i := range expected {
+		if result[i] != expected[i] {
+			t.Errorf("The expected slice is %v, but the answer was %v", expected, result)
+		}
+	}
+}
