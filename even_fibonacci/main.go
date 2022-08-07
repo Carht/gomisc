@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func fib(n int) int {
 	if n == 0 {
 		return 0
@@ -57,4 +59,9 @@ func sumS(s []int) int {
 	}
 
 	return total
+}
+
+func main() {
+	sumEvenFib := sumS(evenSlicep(fibMinor4m()))
+	fmt.Println("The sum of even Fibonacci values minors of 4_000_000 is:", sumEvenFib)
 }
