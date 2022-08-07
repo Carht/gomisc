@@ -19,3 +19,21 @@ func TestFib27(t *testing.T) {
 		t.Errorf("The expected value is %d, but the result was %d", expected, result)
 	}
 }
+
+func TestFibListMinorsOF4_000_000(t *testing.T) {
+	result := fibMinor4m()
+	expected := []int{0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,
+		233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657,
+		46368, 75025, 121393, 196418, 317811, 514229, 832040, 1346269,
+		2178309, 3524578}
+
+	if len(result) != len(expected) {
+		t.Errorf("The lengs of the slices are diferent, the expected leng is %d", len(expected))
+	}
+
+	for i := range result {
+		if result[i] != expected[i] {
+			t.Errorf("The expected list is %v, but the answer was %v", expected, result)
+		}
+	}
+}
