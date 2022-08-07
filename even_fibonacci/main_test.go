@@ -70,3 +70,12 @@ func TestGetEvenElementsFromASlice(t *testing.T) {
 		}
 	}
 }
+
+func TestSumElementsOfASlice(t *testing.T) {
+	result := sumS([]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
+	expected := 55
+
+	if result != expected {
+		t.Errorf("The expected value is %d, but the answer was %d", expected, result)
+	}
+}

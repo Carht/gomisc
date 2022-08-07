@@ -48,3 +48,13 @@ func evenSlicep(s []int) []int {
 
 	return even
 }
+
+func sumS(s []int) int {
+	total := 0
+	
+	for _, i := range s {
+		total += i
+	}
+
+	return total
+}
