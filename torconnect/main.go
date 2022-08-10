@@ -7,13 +7,18 @@ import (
 )
 
 func main() {
+	url := ""
 	sockClient, err := NewClient("127.0.0.1:9050")
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	resp, err := sockClient.Get("https://check.torproject.org:443")
+	if len(os.Args) > 1 {
+		url = os.Args[1] + ":" + os.Args[2]
+	}
+	
+	resp, err := sockClient.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}
