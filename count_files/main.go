@@ -8,9 +8,17 @@ import (
 	"path/filepath"
 )
 
-var file_count struct {
+type FileCount struct {
 	files int
 	dirs int
+}
+
+func (f *FileCount) add_files() int {
+	return f.files + 1
+}
+
+func (f *FileCount) add_dirs() int {
+	return f.dirs + 1
 }
 
 var flag_path string
@@ -21,6 +29,10 @@ func init() {
 
 func main() {
 
+	fc := new(FileCount)
+	fdirs := 0
+	ffiles := 0
+	
 	flag_verbose := flag.Bool("v", false, "Verbose mode")
 	flag.Parse()
 
@@ -37,9 +49,9 @@ func main() {
 	if *flag_verbose {
 		filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
 			if info.IsDir() {
-				file_count.dirs++
+				fdirs += fc.add_dirs()
 			} else {
-				file_count.files++
+				ffiles += fc.add_files()
 			}
 
 			fmt.Println(path)
@@ -48,15 +60,15 @@ func main() {
 	} else {
 		filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
 			if info.IsDir() {
-				file_count.dirs++
+				fdirs += fc.add_dirs()
 			} else {
-				file_count.files++
+				ffiles += fc.add_files()
 			}
 
 			return nil
 		})
 	}
 
-	fmt.Printf("Files: %d, Directories: %d\n", file_count.files, file_count.dirs)
+	fmt.Printf("Files: %d, Directories: %d\n", ffiles, fdirs)
 }
 
