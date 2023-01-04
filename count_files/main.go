@@ -2,39 +2,61 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"flag"
 	"os"
 	"path/filepath"
 )
 
 var file_count struct {
 	files int
-	directories int
+	dirs int
+}
+
+var flag_path string
+
+func init() {
+	flag.StringVar(&flag_path, "p", ".", "File Path")
 }
 
 func main() {
 
-	default_path := "."
+	flag_verbose := flag.Bool("v", false, "Verbose mode")
+	flag.Parse()
 
-	if len(os.Args) == 2 {
-		default_path = os.Args[1]
-	}
-	
-	path, err := filepath.Abs(default_path)
+	_, err := os.Stat(flag_path)
 	if err != nil {
-		path = "."
+		log.Fatal(err)
 	}
 
-	filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
-		if info.IsDir() {
-			file_count.directories++
-		} else {
-			file_count.files++
-		}
+	path, err := filepath.Abs(flag_path)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-		fmt.Println(path)
-		return nil
-	})
+	if *flag_verbose {
+		filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
+			if info.IsDir() {
+				file_count.dirs++
+			} else {
+				file_count.files++
+			}
 
-	fmt.Printf("Files: %d, Directories: %d\n", file_count.files, file_count.directories)
+			fmt.Println(path)
+			return nil
+		})
+	} else {
+		filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
+			if info.IsDir() {
+				file_count.dirs++
+			} else {
+				file_count.files++
+			}
+
+			return nil
+		})
+	}
+
+	fmt.Printf("Files: %d, Directories: %d\n", file_count.files, file_count.dirs)
 }
 
